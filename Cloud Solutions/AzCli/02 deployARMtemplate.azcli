@@ -1,0 +1,79 @@
+
+# https://docs.microsoft.com/en-us/learn/modules/create-azure-resource-manager-template-vs-code/1-introduction
+az login
+az account set --subscription "Self-CloudSolutions-HBO-ICT"
+
+ az account list \
+   --refresh \
+   --query "[?contains(name, 'Self-Cloud')].id" \
+   --output table
+
+az account set --subscription cc52ad1f-818e-4df8-87b1-17466ea6b1d7
+
+MyRgName='exampleRG'
+Location='westeurope'
+az group create --name $MyRgName --location $Location
+
+templateFile="02azuredeploy.json"
+today=$(date "+%d-%b-%Y")
+DeploymentName="blanktemplate-"$today
+
+
+ az deployment group create \
+  --name $DeploymentName \
+  --template-file $templateFile 
+
+  
+ az deployment group create \
+  --name $DeploymentName \
+  --resource-group exampleRG \
+  --template-file $templateFile 
+
+az deployment group create \
+  --name ExampleDeployment \
+  --resource-group exampleRG \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json" \
+  --parameters storageAccountType=Standard_GRS
+
+templateFile="02azuredeployStorage.json"
+
+  az deployment group create \
+  --name ExampleDeployment \
+  --resource-group exampleRG \
+  --template-file $templateFile 
+
+
+templateFile="03parametersDeployment.json"
+
+today=$(date "+%d-%b-%Y")
+deploymentName="blanktemplate-"$today
+
+## PS $templateFile="03parametersDeployment.json"
+## PS $today=Get-Date -Format "dddd MM/dd/yyyy HH:mm K"
+## PS $deploymentName="blanktemplate-"$today
+
+az deployment group create \
+  --name $deploymentName \
+  --resource-group exampleRG \
+  --template-file $templateFile \
+  --parameters storageName=hvastorage20220215
+## when used in bash  store template in C:\Users|odepj\jsonTemplate
+
+## PS $deploymentName ="deploymenthva02220215"
+## store template in C:\Users|odepj\jsonTemplate
+  # az deployment group create `
+  # --name  $deploymentName `
+  # --resource-group exampleRG `
+  # --template-file $templateFile `
+  # --parameters storageName=hvastorage20220215
+
+
+templateFile="04sjabloonfunctionDeployment.json"
+today=$(date +"%d-%b-%Y")
+DeploymentName="addfunction-"$today
+
+az deployment group create \
+  --name $DeploymentName \
+  --resource-group exampleRG \
+  --template-file $templateFile \
+  --parameters storagePrefix=odepj

@@ -1,0 +1,57 @@
+az account list
+az account set --subscription "Self-CloudSolutions-HBO-ICT"
+
+mySubscription="Azure for Students"
+az account set --subscription $mySubscription
+az group list
+
+az account list-locations
+
+
+## https://jmespath.readthedocs.io/en/latest/proposals/filter-expressions.html
+## JMESPath filter expressions
+
+az group list --query [].name --output table
+
+az group list --query [].[name,location] --output table
+
+az group list --query "[].{Name:name,Location:location}" --output table
+
+az group list --query "[?contains(name, 'Educators')]" --output table
+
+az group list --query "[?name=='Educators']" --output table
+az group list --query "[?name!='Educators']" --output table
+az group list --query "[?name!='Educators' && name!='icts-automation-rg']" --output table
+az group list --query "[?name!='Educators' && name!='icts-automation-rg' && name!='cloud-shell-storage-westeurope']" --output tsv
+
+
+az group list --query "[?contains(name, 'Educators')].[name]" --output table
+
+az group list --query "[?contains(name, 'Educators')].[name]" --output tsv
+
+# assign to variable
+test=$(az group list --query "[?contains(name, 'Educators')].[name]" --output tsv);
+echo $test
+
+
+##  remove one
+
+az group create --location westeurope --name MyRG
+az group list --output table
+az group delete --name MyRG --yes --no-wait
+
+MyRgName='MyRG'
+Location='westeurope'
+
+az group create --location $Location --resource-group $MyRgName
+az group list --output table
+
+#3 remove all but 
+az group list --query "[?contains(name, 'Educators')]" --output table
+
+az group list --query "[?name!='Educators' && name!='icts-automation-rg' && name!='cloud-shell-storage-westeurope'].[name]"  --output table
+
+for rgname in `az group list --query "[?name!='Educators' && name!='icts-automation-rg' && name!='cloud-shell-storage-westeurope'].[name]" --output tsv`;do
+echo Deleting ${rgname}
+az group delete -n ${rgname} --yes --no-wait
+done
