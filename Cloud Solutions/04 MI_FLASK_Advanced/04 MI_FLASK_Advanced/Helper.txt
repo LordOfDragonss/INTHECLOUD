@@ -1,0 +1,12 @@
+ # https://docs.microsoft.com/en-us/azure/developer/python/walkthrough-tutorial-authentication-01
+
+STEP 1: Create resources using azcli
+
+STEP 2: Deploy third party API
+
+STEP 3: SET secretname instead of master_key value 
+
+STEP 4: Deploy main app
+
+KNOWN ERRORS:
+1.  “host.json”. Under “extensionbundle”,  “version”: “[1.*, 2.0.0)”. Sometimes it needs to be update: “version”: “[3.*, 4.0.0)”.

@@ -13,6 +13,15 @@ html {
     -webkit-text-size-adjust: 100%
 }
 
+.songbox{
+    display: flex;
+    text-align: center;
+    color: #fff;
+    border: #262626 5px;
+    background-color: 	#1DB954;
+    margin: 10px;
+}
+
 body {
     margin: 0
 }

@@ -6,6 +6,7 @@ COPY .  /code
 
 RUN pip install flask
 RUN pip install pymongo
+RUN pip install azure0keycault-secrets azure-identity
 RUN pip install -r requirements.txt
 RUN export FLASK_APP=app.py
 

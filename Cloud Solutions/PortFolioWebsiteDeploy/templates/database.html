@@ -12,10 +12,10 @@
             <div class="col-md-10 col-md-offset-1">
               {% for song in songs %}
 
+              <div class="songbox">
               <div class="row">
-                <div class="col-xs-12 col-md-6">
-                  <div class="d-flex p-2">
-                  <p>{{song['name']}} by {{song['artist']}}</p>
+                <div class="col-xs-12">
+                  <h3>{{song['name']}} by {{song['artist']}}</h3>
                   <a target="_blank" href="{{song['href']}}">Listen here</a>
                   </div>
                 </div>
