@@ -1,0 +1,166 @@
+[
+    {
+        "orderNr": 70001,
+        "customerId": 10,
+        "fulfilled": true,
+        "date":"2023-10-03",
+        "items":[
+            {
+                "name":"Samsung Galaxy A54 5G",
+                "price": 483
+            },
+            {
+                "name":"Google Pixel 6a",
+                "price": 329
+            },
+            {
+                "name":"Apple iPhone 14 Pro",
+                "price": 1157
+            }
+        ]
+    },
+    {
+        "orderNr": 70002,
+        "customerId": 11,
+        "fulfilled": true,
+        "date":"2023-10-03",
+        "items":[
+            {
+                "name":"Samsung Galaxy A54 5G",
+                "price": 483
+            },
+            {
+                "name":"Google Pixel 6a",
+                "price": 329
+            }
+        ]
+    },
+    {
+        "orderNr": 70003,
+        "customerId": 10,
+        "fulfilled": false,
+        "date":"2023-12-03",
+        "items":[
+            {
+                "name":"Samsung Galaxy A54 5G",
+                "price": 483
+            },
+            {
+                "name":"Google Pixel 6a",
+                "price": 329
+            }
+        ]
+    },
+    {
+        "orderNr": 70004,
+        "customerId": 10,
+        "fulfilled": true,
+        "date":"2023-12-03",
+        "items":[
+            {
+                "name":"Samsung Galaxy A54 5G",
+                "price": 483
+            },
+            {
+                "name":"Google Pixel 6a",
+                "price": 329
+            }
+        ]
+    },
+    {
+        "orderNr": 70005,
+        "customerId": 10,
+        "fulfilled": false,
+        "date":"2023-15-03",
+        "items":[
+            {
+                "name":"Samsung Galaxy A54 5G",
+                "price": 483
+            },
+            {
+                "name":"Google Pixel 6a",
+                "price": 329
+            }
+        ]
+    },
+    {
+        "orderNr": 70006,
+        "customerId": 12,
+        "fulfilled": false,
+        "date":"2023-15-03",
+        "items":[
+            {
+                "name":"Samsung Galaxy A54 5G",
+                "price": 483
+            },
+            {
+                "name":"Google Pixel 6a",
+                "price": 329
+            }
+        ]
+    },
+    {
+        "orderNr": 70007,
+        "customerId": 13,
+        "fulfilled": true,
+        "date":"2023-15-03",
+        "items":[
+            {
+                "name":"Samsung Galaxy A54 5G",
+                "price": 483
+            },
+            {
+                "name":"Google Pixel 6a",
+                "price": 329
+            }
+        ]
+    },
+    {
+        "orderNr": 70008,
+        "customerId": 14,
+        "fulfilled": true,
+        "date":"2023-15-03",
+        "items":[
+            {
+                "name":"Samsung Galaxy A54 5G",
+                "price": 483
+            },
+            {
+                "name":"Google Pixel 6a",
+                "price": 329
+            }
+        ]
+    },
+    {
+        "orderNr": 70009,
+        "customerId": 15,
+        "fulfilled": false,
+        "date":"2023-17-03",
+        "items":[
+            {
+                "name":"Samsung Galaxy A54 5G",
+                "price": 483
+            },
+            {
+                "name":"Google Pixel 6a",
+                "price": 329
+            }
+        ]
+    },
+    {
+        "orderNr": 70010,
+        "customerId": 15,
+        "fulfilled": true,
+        "date":"2023-17-03",
+        "items":[
+            {
+                "name":"Samsung Galaxy A54 5G",
+                "price": 483
+            },
+            {
+                "name":"Google Pixel 7",
+                "price": 589
+            }
+        ]
+    }
+]

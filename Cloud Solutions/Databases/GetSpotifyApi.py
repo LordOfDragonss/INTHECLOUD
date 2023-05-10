@@ -1,12 +1,11 @@
 import requests
 
 response = requests.get("https://api.spotify.com/v1/playlists/6txGSI1X7kxbW0vevaFP31/tracks",
-                         headers={'Authorization': 'Bearer BQC_sHciFzzmbLR1ImHPMfjIfZQ35ZxgecDVuhmAr158TnJ--QJECT5v2lN92sEfvbncvmACoucKq73DgnMjNYwnoDphwMSpyXnN32uVOXhnj4o_ddvrk_443YICfxG0EdFnTSHu3qL3LgvOIEWhKWpn6mjSGM2KvZaKMmXWfiqCoWOrJJRgKeRUfPo-xA'})
-
+                        headers={'Authorization': 'Bearer BQC_sHciFzzmbLR1ImHPMfjIfZQ35ZxgecDVuhmAr158TnJ--QJECT5v2lN92sEfvbncvmACoucKq73DgnMjNYwnoDphwMSpyXnN32uVOXhnj4o_ddvrk_443YICfxG0EdFnTSHu3qL3LgvOIEWhKWpn6mjSGM2KvZaKMmXWfiqCoWOrJJRgKeRUfPo-xA'})
 
 data = response.json()
 
-# print(data)
+print(data)
 
 array = []
 for item in data['items']:

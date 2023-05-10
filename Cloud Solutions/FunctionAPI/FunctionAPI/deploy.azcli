@@ -1,0 +1,27 @@
+LOCATION=westeurope
+GROUP=
+STORAGE_NAME=
+FUNCTION_NAME=
+
+az group create \
+    --location $LOCATION \
+    --resource-group $GROUP
+
+az storage account create \
+    --name $STORAGE_NAME \
+    --location $LOCATION \
+    --resource-group $GROUP \
+    --sku Standard_LRS
+
+az functionapp create \
+    --resource-group $GROUP \
+    --os-type Linux \
+    --consumption-plan-location $LOCATION \
+    --runtime python \
+    --runtime-version 3.9 \
+    --functions-version 3 \
+    --name $FUNCTION_NAME \
+    --storage-account $STORAGE_NAME
+
+cd api
+func azure functionapp publish $FUNCTION_NAME
