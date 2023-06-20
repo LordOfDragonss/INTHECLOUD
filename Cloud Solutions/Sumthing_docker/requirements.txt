@@ -3,9 +3,9 @@
 # Manually managing azure-functions-worker may cause unexpected issues
 
 azure-functions
-# psycopg2-binary==2.9.1
+# psycopg2-binary==2.9.1 #incompatable version
 datetime
 azure-identity
-# azure-core
+# azure-core #already satisfied in image
 azure-keyvault-secrets
-# azure-functions-core-tools==4.*
+# azure-functions-core-tools==4.* #incompatable version atm

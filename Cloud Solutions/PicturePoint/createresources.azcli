@@ -1,0 +1,39 @@
+source vars.azcli
+
+# az login
+
+az subscription set --subscription "Azure for Students"
+
+resourcegroup="sumthingPic"
+storageAcc="pictureblobsumthing2"
+
+az group create --name $resourcegroup --location westeurope
+az storage account create --name $storageAcc --location westeurope --resource-group $resourcegroup
+
+storageKey=$(az storage account keys list -g $resourcegroup -n $storageAcc --query "[0].value" --output tsv)
+
+az storage container create --name images --account-name $storageAcc  --account-key $storageKey
+
+az storage container create --name imagesOnHold --account-name $storageAcc --acount-key $storageKey
+
+
+az functionapp create --resource-group $resourcegroup\
+    --os-type Linux \
+    --consumption-plan-location westeurope \
+    --runtime python \
+    --runtime-version 3.9 \
+    --functions-version 3 \
+    --name PictureApp \
+    --storage-account $storageAcc
+
+az functionapp deployment source config --resource-group $resourcegroup --name PictureApp --src WebApp/image_blob.py .
+
+# planName="SumthingPlan"
+# az appservice plan create --name $planName --resource-group $resourcegroup --sku free
+
+# appname="sumthingWeb5464"
+# az webapp create --name $appname --resource-group $resourcegroup --plan $planName
+
+# az webapp deployment source config --name $appname --resource-group $resourcegroup --branch master --manual-integration --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
+
+# az webapp config appsettings set --name $appname --resource-group $resourcegroup --settings AzureStorageConfig__AccountName=$storageAcc AzureStorageConfig__ImageContainer=images AzureStorageConfig__ThumbnailContainer=thumbnails AzureStorageConfig__AccountKey=$storageKey
